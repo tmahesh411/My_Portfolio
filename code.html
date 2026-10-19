@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mahesh Namdev Taur — Frontend Developer &amp; Core Java Enthusiast</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#1c1f29",
+            "inverse-primary": "#00687a",
+            "on-tertiary-fixed": "#002113",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-surface-variant": "#bcc9cd",
+            "tertiary": "#4edea3",
+            "outline-variant": "#3d494c",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary": "#adc6ff",
+            "tertiary-container": "#1bbd85",
+            "primary": "#4cd7f6",
+            "inverse-surface": "#dfe2ef",
+            "on-background": "#dfe2ef",
+            "secondary-fixed": "#d8e2ff",
+            "on-secondary-fixed-variant": "#004395",
+            "on-primary": "#003640",
+            "surface-container-low": "#181b25",
+            "outline": "#869397",
+            "on-primary-container": "#00424f",
+            "on-error": "#690005",
+            "surface-container-lowest": "#0a0e17",
+            "primary-fixed-dim": "#4cd7f6",
+            "surface-container-high": "#262a34",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-container": "#0566d9",
+            "on-tertiary-container": "#00452e",
+            "primary-container": "#06b6d4",
+            "on-primary-fixed": "#001f26",
+            "surface-container-highest": "#31353f",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0f131c",
+            "on-tertiary": "#003824",
+            "on-secondary-container": "#e6ecff",
+            "surface-bright": "#353943",
+            "on-primary-fixed-variant": "#004e5c",
+            "inverse-on-surface": "#2c303a",
+            "on-secondary-fixed": "#001a42",
+            "surface": "#0f131c",
+            "error": "#ffb4ab",
+            "surface-tint": "#4cd7f6",
+            "surface-variant": "#31353f",
+            "primary-fixed": "#acedff",
+            "on-secondary": "#002e6a",
+            "secondary-fixed-dim": "#adc6ff",
+            "on-surface": "#dfe2ef",
+            "background": "#0f131c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-tablet": "2rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "4rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-code-sm": ["JetBrains Mono"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-code-lg": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-hero-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-code-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-hero": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom glow and micro grid background lines */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .neon-cyan-glow {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+    }
+    .neon-emerald-glow {
+      box-shadow: 0 0 20px -4px rgba(16, 185, 129, 0.4);
+    }
+    .code-glow {
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden">
+<!-- Ambient Background Spotlights -->
+<div class="fixed top-[-10rem] left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="fixed top-[45rem] right-[-10rem] w-[40rem] h-[40rem] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-0 left-[-10rem] w-[45rem] h-[35rem] bg-tertiary-container/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full max-w-[1200px] mx-auto px-6 py-4">
+<!-- Brand Logo / Product Name with Code Symbol -->
+<a class="flex items-center gap-2 group" href="#about">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 group-hover:border-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-primary text-[18px]">code</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary tracking-wider flex items-center gap-1.5">
+          MT <span class="text-outline text-body-sm font-normal font-label-code-sm">// Mahesh Taur</span>
+</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-label-code-sm text-label-code-sm">
+<a class="text-primary dark:text-primary font-medium border-b-2 border-primary pb-1 transition-colors" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#skills">Skills</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#education">Education</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#personal">Personal</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Live Status indicator -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 border border-tertiary/30 text-tertiary font-label-code-sm text-label-code-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>Available for Hire</span>
+</div>
+<a class="hidden sm:inline-flex items-center px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-semibold border border-outline-variant/40 hover:border-outline transition-all duration-150 active:scale-95" href="#contact">
+          Resume
+        </a>
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-bold transition-all duration-150 shadow-sm hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] active:scale-95" href="#contact">
+<span>Get in Touch</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="w-full max-w-[1200px] mx-auto px-6 py-8 space-y-24">
+<!-- HERO SECTION -->
+<section class="pt-8 pb-12 relative" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left Column: Copy & Direct Info -->
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 text-on-surface-variant font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-primary text-[14px]">terminal</span>
+<span>Frontend Developer &amp; Core Java Enthusiast</span>
+</div>
+<div class="space-y-2">
+<h1 class="font-display-hero text-display-hero font-extrabold tracking-tight text-on-surface">
+              MAHESH <br class="hidden sm:block"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary">
+                NAMDEV TAUR
+              </span>
+</h1>
+<p class="font-label-code-lg text-label-code-lg text-outline flex items-center gap-2 pt-1">
+<span class="material-symbols-outlined text-tertiary text-[18px]">location_on</span>
+              Pune, Maharashtra, India
+            </p>
+</div>
+<!-- Verbatim Professional Summary -->
+<div class="p-5 rounded-xl bg-surface-container-lowest/60 border border-outline-variant/30 backdrop-blur-sm relative">
+<div class="absolute -left-1 top-4 bottom-4 w-1 bg-gradient-to-b from-primary to-secondary rounded-r"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed pl-2">
+              Detail-oriented B.B.A. (Computer Applications) graduate with strong fundamentals in Java and web technologies, including HTML5, CSS3, and JavaScript. Experienced in developing responsive, user-friendly frontend web applications. Passionate about software development and eager to contribute to impactful technical projects.
+            </p>
+</div>
+<!-- Direct Channels / Glassmorphism Quick Links -->
+<div class="pt-2 flex flex-wrap items-center gap-3">
+<a class="group flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-surface-container-low/90 hover:bg-surface-container border border-outline-variant/30 hover:border-primary/50 transition-all duration-150" href="https://github.com/tmahesh411" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-primary text-[18px]">code</span>
+<div class="text-left">
+<p class="font-label-code-sm text-label-code-sm text-outline group-hover:text-primary transition-colors">GitHub</p>
+<p class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">tmahesh411</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary text-[14px]">arrow_outward</span>
+</a>
+<a class="group flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-surface-container-low/90 hover:bg-surface-container border border-outline-variant/30 hover:border-secondary/50 transition-all duration-150" href="https://linkedin.com/in/mahesh-taur" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-secondary text-[18px]">share</span>
+<div class="text-left">
+<p class="font-label-code-sm text-label-code-sm text-outline group-hover:text-secondary transition-colors">LinkedIn</p>
+<p class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">mahesh-taur</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary text-[14px]">arrow_outward</span>
+</a>
+<a class="group flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-surface-container-low/90 hover:bg-surface-container border border-outline-variant/30 hover:border-tertiary/50 transition-all duration-150" href="https://leetcode.com/u/maheshtaur" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-tertiary text-[18px]">data_object</span>
+<div class="text-left">
+<p class="font-label-code-sm text-label-code-sm text-outline group-hover:text-tertiary transition-colors">LeetCode</p>
+<p class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">maheshtaur</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-tertiary text-[14px]">arrow_outward</span>
+</a>
+</div>
+<!-- Direct Communication Chips -->
+<div class="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-code-sm text-label-code-sm pt-1">
+<span class="flex items-center gap-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
+              maheshtaur920@gmail.com
+            </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary">call</span>
+              (+91) 7083148363
+            </span>
+</div>
+</div>
+<!-- Right Column: Interactive Code Terminal Card -->
+<div class="lg:col-span-5">
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/40 code-glow">
+<!-- Terminal Titlebar -->
+<div class="px-4 py-3 bg-surface-container-low border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error/70 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-amber-500/70 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary/70 inline-block"></span>
+<span class="ml-2 font-label-code-sm text-label-code-sm text-outline">developer_spec.json</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline text-[12px] font-label-code-sm">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Node v20.10</span>
+</div>
+</div>
+<!-- Terminal Code Body -->
+<div class="p-6 font-label-code-sm text-label-code-sm leading-relaxed overflow-x-auto space-y-1 text-on-surface-variant bg-surface-container-lowest/90">
+<div><span class="text-outline">1</span> <span class="text-secondary">{</span></div>
+<div><span class="text-outline">2</span> <span class="text-primary">"engineer"</span>: <span class="text-tertiary">"Mahesh Namdev Taur"</span>,</div>
+<div><span class="text-outline">3</span> <span class="text-primary">"role"</span>: <span class="text-tertiary">"Frontend Developer &amp; Java Enthusiast"</span>,</div>
+<div><span class="text-outline">4</span> <span class="text-primary">"location"</span>: <span class="text-tertiary">"Pune, MH, IN"</span>,</div>
+<div><span class="text-outline">5</span> <span class="text-primary">"education"</span>: <span class="text-secondary">{</span></div>
+<div><span class="text-outline">6</span> <span class="text-primary">"degree"</span>: <span class="text-on-surface">"B.B.A. (Computer Applications)"</span>,</div>
+<div><span class="text-outline">7</span> <span class="text-primary">"cgpa"</span>: <span class="text-tertiary">8.16</span>,</div>
+<div><span class="text-outline">8</span> <span class="text-primary">"status"</span>: <span class="text-tertiary">"Expected 2026"</span></div>
+<div><span class="text-outline">9</span> <span class="text-secondary">}</span>,</div>
+<div><span class="text-outline">10</span> <span class="text-primary">"coreStack"</span>: <span class="text-secondary">[</span></div>
+<div><span class="text-outline">11</span> <span class="text-tertiary">"Core Java"</span>, <span class="text-tertiary">"JavaScript (ES6+)"</span>,</div>
+<div><span class="text-outline">12</span> <span class="text-tertiary">"HTML5"</span>, <span class="text-tertiary">"CSS3"</span>, <span class="text-tertiary">"Responsive Design"</span></div>
+<div><span class="text-outline">13</span> <span class="text-secondary">]</span>,</div>
+<div><span class="text-outline">14</span> <span class="text-primary">"readyToWork"</span>: <span class="text-tertiary">true</span>,</div>
+<div><span class="text-outline">15</span> <span class="text-primary">"focus"</span>: <span class="text-on-surface">"Building responsive, high-performance web solutions"</span></div>
+<div><span class="text-outline">16</span> <span class="text-secondary">}</span></div>
+</div>
+<!-- Terminal Footer Status -->
+<div class="px-4 py-2.5 bg-surface-container-low/70 border-t border-outline-variant/20 flex items-center justify-between text-outline font-label-code-sm text-label-code-sm">
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>System status: Compiled 0 errors</span>
+</span>
+<span>UTF-8</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TECHNICAL SKILLS SECTION -->
+<section class="space-y-8 scroll-mt-24" id="skills">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/20 pb-5">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-[16px]">integration_instructions</span>
+<span>CAPABILITIES &amp; PROFICIENCIES</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+            Technical Stack &amp; Tooling
+          </h2>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline max-w-sm">
+          Architectured around OOP computational logic, modern ECMAScript standards, and responsive browser ergonomics.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- CARD 1: Programming Languages -->
+<div class="rounded-xl p-6 bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-200 flex flex-col justify-between group hover:-translate-y-1">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 group-hover:border-primary text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Programming Languages</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Foundational computational systems &amp; backend architecture</p>
+</div>
+<div class="space-y-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">Core Java</span>
+<span class="font-label-code-sm text-label-code-sm text-tertiary">Advanced</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[88%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  OOPs Concepts
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Java Collections
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Problem Solving
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Data Structures
+                </span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 mt-6 flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>Primary Language</span>
+<span class="text-primary font-mono">JDK 17+</span>
+</div>
+</div>
+<!-- CARD 2: Web Technologies -->
+<div class="rounded-xl p-6 bg-surface-container-low border border-outline-variant/30 hover:border-secondary/50 transition-all duration-200 flex flex-col justify-between group hover:-translate-y-1">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 group-hover:border-secondary text-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">web</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Web Technologies</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cross-browser client execution &amp; modern interfaces</p>
+</div>
+<div class="space-y-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-secondary">JavaScript (ES6+)</span>
+<span class="font-label-code-sm text-label-code-sm text-tertiary">Strong</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full w-[85%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  HTML5 Semantics
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  CSS3 &amp; Flexbox/Grid
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Responsive UI
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  DOM Manipulation
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Modern Layouts
+                </span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 mt-6 flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>Interface Architecture</span>
+<span class="text-secondary font-mono">W3C / ES2023</span>
+</div>
+</div>
+<!-- CARD 3: Developer Tools & Environments -->
+<div class="rounded-xl p-6 bg-surface-container-low border border-outline-variant/30 hover:border-tertiary/50 transition-all duration-200 flex flex-col justify-between group hover:-translate-y-1">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 group-hover:border-tertiary text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[24px]">construction</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Tools &amp; Environments</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Continuous version control, CI/CD hosts &amp; CLI</p>
+</div>
+<div class="space-y-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-tertiary">Git &amp; Versioning</span>
+<span class="font-label-code-sm text-label-code-sm text-tertiary">Proficient</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full w-[80%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Git
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  GitHub
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Linux (CLI)
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  Netlify Deploy
+                </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm border border-outline-variant/20">
+                  VS Code
+                </span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 mt-6 flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span>Dev Ecosystem</span>
+<span class="text-tertiary font-mono">Bash / GitFlow</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURED PROJECTS SECTION -->
+<section class="space-y-8 scroll-mt-24" id="projects">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/20 pb-5">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>PRODUCTION &amp; ACADEMIC SHOWCASE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+            Featured Engineering Work
+          </h2>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">
+          Real-world applications tested for usability, performance &amp; clean code.
+        </p>
+</div>
+<!-- Flagship Project Card: Bento Architecture -->
+<div class="rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/40 transition-all duration-300 overflow-hidden group">
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<!-- Project Left: Content & Specs -->
+<div class="lg:col-span-7 p-8 md:p-10 flex flex-col justify-between space-y-6">
+<div class="space-y-4">
+<!-- Badges Header -->
+<div class="flex flex-wrap items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-code-sm text-label-code-sm font-semibold">
+                  Academic Project Showcase
+                </span>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-code-sm text-label-code-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span>Live Production</span>
+</div>
+</div>
+<!-- Title & Role -->
+<div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                  Agriculture Management System
+                </h3>
+<p class="font-label-code-sm text-label-code-sm text-outline mt-1 flex items-center gap-2">
+<span class="text-tertiary">Role:</span> Frontend Developer
+                  <span class="text-outline-variant">•</span>
+<span>B.B.A. Computer Applications Capstone</span>
+</p>
+</div>
+<!-- Verbatim Project Description -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Designed and developed a responsive frontend web application to streamline agricultural activity management and efficiently track farm resources.
+              </p>
+<!-- Key Highlights Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/70 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px] mb-1">dashboard_customize</span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Resource Tracking</p>
+<p class="font-label-code-sm text-label-code-sm text-outline">Real-time inventory &amp; crop metrics</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/70 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">devices</span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Farmer-Friendly</p>
+<p class="font-label-code-sm text-label-code-sm text-outline">Clean, responsive navigation</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/70 border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-[20px] mb-1">query_stats</span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Data Presentation</p>
+<p class="font-label-code-sm text-label-code-sm text-outline">Visual modules for decisions</p>
+</div>
+</div>
+<!-- Tech Stack Tags -->
+<div class="pt-2 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-label-code-sm text-label-code-sm">HTML5</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-secondary font-label-code-sm text-label-code-sm">CSS3</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-tertiary font-label-code-sm text-label-code-sm">JavaScript</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface-variant font-label-code-sm text-label-code-sm">Responsive Web Design</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface-variant font-label-code-sm text-label-code-sm">Netlify</span>
+</div>
+</div>
+<!-- Project Actions -->
+<div class="pt-6 border-t border-outline-variant/20 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-bold hover:bg-primary-container hover:text-on-primary-container transition-all duration-150 neon-cyan-glow active:scale-95" href="https://agritechmanagement.netlify.app/" rel="noopener noreferrer" target="_blank">
+<span>View Live Deployment</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+<a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-body-sm text-body-sm font-medium transition-colors" href="https://github.com/tmahesh411" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span>Source Code</span>
+</a>
+</div>
+</div>
+<!-- Project Right: Interactive Mockup Visual -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-6 md:p-8 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/30 relative overflow-hidden bg-grid-pattern">
+<!-- Browser Mockup Window -->
+<div class="rounded-xl overflow-hidden border border-outline-variant/40 bg-surface shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]">
+<!-- Browser Header -->
+<div class="px-4 py-2.5 bg-surface-container flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary/70"></span>
+</div>
+<div class="px-3 py-1 rounded bg-surface-container-lowest text-outline font-label-code-sm text-[10px] truncate max-w-[200px]">
+                  https://agritechmanagement.netlify.app/
+                </div>
+<span class="material-symbols-outlined text-outline text-[16px]">lock</span>
+</div>
+<!-- Mockup Content UI Preview -->
+<div class="p-5 space-y-4 bg-surface-dim">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">agriculture</span>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface">AgriTech Portal</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] bg-tertiary/20 text-tertiary font-label-code-sm">Status: Active</span>
+</div>
+<!-- Mockup Metrics Row -->
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant/20">
+<p class="font-label-code-sm text-[10px] text-outline">Total Farm Fields</p>
+<p class="font-headline-sm text-[16px] font-bold text-primary">12 Parcels</p>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant/20">
+<p class="font-label-code-sm text-[10px] text-outline">Resource Efficiency</p>
+<p class="font-headline-sm text-[16px] font-bold text-tertiary">94.2%</p>
+</div>
+</div>
+<!-- Mockup Chart / Data Preview -->
+<div class="p-3 rounded bg-surface-container-low border border-outline-variant/20 space-y-2">
+<div class="flex justify-between items-center text-[11px] font-label-code-sm text-outline">
+<span>Irrigation &amp; Crop Distribution</span>
+<span class="text-primary">Optimized</span>
+</div>
+<div class="space-y-1.5">
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-gradient-to-r from-primary to-tertiary h-2 rounded-full w-[76%]"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full w-[60%]"></div>
+</div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between text-outline text-[11px] font-label-code-sm">
+<span>Fast Load • 0 Dependencies</span>
+<a class="text-primary hover:underline flex items-center gap-1" href="https://agritechmanagement.netlify.app/" rel="noopener noreferrer" target="_blank">
+                    Live Demo →
+                  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EDUCATION & ACADEMIC BACKGROUND -->
+<section class="space-y-8 scroll-mt-24" id="education">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/20 pb-5">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span>ACADEMIC FOUNDATION &amp; EXCELLENCE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+            Education Timeline
+          </h2>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">
+          Consistent high-academic performance in computer applications and science disciplines.
+        </p>
+</div>
+<!-- Timeline Rail Grid -->
+<div class="relative border-l-2 border-outline-variant/30 ml-4 md:ml-6 pl-6 md:pl-10 space-y-8">
+<!-- MILESTONE 1: Undergrad -->
+<div class="relative group">
+<!-- Timeline Node -->
+<div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-primary flex items-center justify-center group-hover:scale-125 transition-transform duration-200">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-200">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="inline-block px-2.5 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary font-label-code-sm text-label-code-sm font-semibold">
+                  2026 (Expected Graduation)
+                </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">
+                  B.B.A. (Computer Applications)
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Dr. Babasaheb Ambedkar College, Aundh, Pune
+                </p>
+</div>
+<!-- Score Badge -->
+<div class="self-start sm:self-center px-4 py-2 rounded-xl bg-surface-container-highest border border-primary/40 text-right">
+<span class="font-label-code-sm text-label-code-sm text-outline block">Cumulative Grade</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">8.16 <span class="text-body-sm font-normal text-outline">/ 10 CGPA</span></span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Java Programming</span>
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Web Technology</span>
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Data Structures</span>
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Database Systems</span>
+</div>
+</div>
+</div>
+<!-- MILESTONE 2: Class XII (HSC) -->
+<div class="relative group">
+<!-- Timeline Node -->
+<div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-secondary flex items-center justify-center group-hover:scale-125 transition-transform duration-200">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-secondary/50 transition-all duration-200">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="inline-block px-2.5 py-0.5 rounded bg-secondary/10 border border-secondary/30 text-secondary font-label-code-sm text-label-code-sm font-semibold">
+                  2023 Completed
+                </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">
+                  Class XII (Higher Secondary Certificate - HSC)
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Hutatma Rajguru Vidyalaya &amp; Junior College, Pune
+                </p>
+</div>
+<!-- Score Badge -->
+<div class="self-start sm:self-center px-4 py-2 rounded-xl bg-surface-container-highest border border-secondary/40 text-right">
+<span class="font-label-code-sm text-label-code-sm text-outline block">Board Examination</span>
+<span class="font-headline-md text-headline-md font-bold text-secondary">78.83%</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Higher Secondary Curriculum</span>
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Analytical Mathematics</span>
+</div>
+</div>
+</div>
+<!-- MILESTONE 3: Class X (SSC) -->
+<div class="relative group">
+<!-- Timeline Node -->
+<div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-tertiary flex items-center justify-center group-hover:scale-125 transition-transform duration-200">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-tertiary/50 transition-all duration-200">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="inline-block px-2.5 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-code-sm text-label-code-sm font-semibold">
+                  2021 Completed
+                </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">
+                  Class X (Secondary School Certificate - SSC)
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  Hutatma Rajguru Vidyalaya, Pune
+                </p>
+</div>
+<!-- Score Badge -->
+<div class="self-start sm:self-center px-4 py-2 rounded-xl bg-surface-container-highest border border-tertiary/40 text-right">
+<span class="font-label-code-sm text-label-code-sm text-outline block">Distinction Score</span>
+<span class="font-headline-md text-headline-md font-bold text-tertiary">85.40%</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">State Board Distinction</span>
+<span class="px-2 py-1 rounded bg-surface-container text-outline font-label-code-sm text-label-code-sm">Science &amp; Mathematics Core</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT, CULTURAL & INTERESTS SECTION -->
+<section class="space-y-8 scroll-mt-24" id="personal">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/20 pb-5">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-code-sm text-label-code-sm">
+<span class="material-symbols-outlined text-[16px]">hiking</span>
+<span>VALUES, RESILIENCE &amp; CHARACTER</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+            Beyond the Terminal
+          </h2>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">
+          Endurance cultivated in Sahyadri mountain treks, reflecting perseverance in complex software debugging.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left: Trekking & Maratha Forts Passion Card -->
+<div class="md:col-span-7 rounded-2xl p-8 bg-surface-container-low border border-outline-variant/30 relative overflow-hidden flex flex-col justify-between group">
+<div class="space-y-5 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary border border-outline-variant/30">
+<span class="material-symbols-outlined text-[20px]">landscape</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-tertiary block">Hobbies &amp; Interests</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  Fort Trekking &amp; Exploring Historical Places
+                </h3>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Active explorer across the rugged <strong class="text-on-surface">Sahyadri ranges</strong> and iconic <strong class="text-on-surface">Maratha hill forts</strong> of Maharashtra (Sinhagad, Rajgad, Torna). Trekking rigorous terrain instills discipline, mental stamina, and an unrelenting drive to solve demanding challenges under pressure.
+            </p>
+<div class="grid grid-cols-3 gap-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-primary block">Resilience</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Steep Trails</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary block">Endurance</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Long Hauls</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary block">Curiosity</span>
+<span class="font-label-code-sm text-label-code-sm text-outline">Heritage Roots</span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 mt-6 relative z-10 flex items-center justify-between font-label-code-sm text-label-code-sm text-outline">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[16px]">location_on</span>
+              Sahyadri Mountain Range, Western Ghats
+            </span>
+<span class="text-primary font-medium">Active Explorer</span>
+</div>
+</div>
+<!-- Right: Languages Spoken & Multilingual Fluency -->
+<div class="md:col-span-5 rounded-2xl p-8 bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary border border-outline-variant/30">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Communication</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  Languages Spoken
+                </h3>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Marathi -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-bold text-on-surface">Marathi (मराठी)</span>
+<span class="px-2 py-0.5 rounded text-tertiary bg-tertiary/10 font-label-code-sm text-label-code-sm font-semibold">Native / Mother Tongue</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full w-full"></div>
+</div>
+</div>
+<!-- English -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-bold text-on-surface">English</span>
+<span class="px-2 py-0.5 rounded text-primary bg-primary/10 font-label-code-sm text-label-code-sm font-semibold">Professional Working</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[85%]"></div>
+</div>
+</div>
+<!-- Hindi -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-bold text-on-surface">Hindi (हिन्दी)</span>
+<span class="px-2 py-0.5 rounded text-secondary bg-secondary/10 font-label-code-sm text-label-code-sm font-semibold">Full Working Proficiency</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full w-[90%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 text-outline font-label-code-sm text-label-code-sm">
+            Ready for collaborative distributed teams across global timezones.
+          </div>
+</div>
+</div>
+</section>
+<!-- CONTACT / GET IN TOUCH SECTION -->
+<section class="space-y-8 scroll-mt-24 pt-6" id="contact">
+<!-- Big Call to Action Card -->
+<div class="rounded-3xl p-8 md:p-14 bg-gradient-to-br from-surface-container via-surface-container-low to-surface-container-lowest border border-outline-variant/40 relative overflow-hidden text-center max-w-4xl mx-auto space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-code-sm text-label-code-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>AVAILABLE FOR FULL-TIME ROLES &amp; INTERNSHIPS</span>
+</div>
+<div class="space-y-3">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface max-w-2xl mx-auto tracking-tight">
+            Let's Build Something Impactful Together
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+            Seeking opportunities to apply rigorous Core Java competence, sharp JavaScript capabilities, and frontend precision in forward-thinking engineering teams.
+          </p>
+</div>
+<!-- Direct Action Grid Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left pt-2">
+<!-- Direct Email Box -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 space-y-2 hover:border-primary transition-colors">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[22px]">mail</span>
+<button class="text-outline hover:text-primary transition-colors" onclick="navigator.clipboard.writeText('maheshtaur920@gmail.com'); alert('Copied email to clipboard!');" title="Copy Email">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">Direct Email</p>
+<a class="font-body-sm text-body-sm font-semibold text-on-surface hover:text-primary transition-colors break-all block" href="mailto:maheshtaur920@gmail.com">
+              maheshtaur920@gmail.com
+            </a>
+</div>
+<!-- Direct Phone Box -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 space-y-2 hover:border-tertiary transition-colors">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary text-[22px]">call</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">Phone / WhatsApp</p>
+<a class="font-body-sm text-body-sm font-semibold text-on-surface hover:text-tertiary transition-colors block" href="tel:+917083148363">
+              (+91) 7083148363
+            </a>
+</div>
+<!-- Base Location Box -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 space-y-2 sm:col-span-2 md:col-span-1 hover:border-secondary transition-colors">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[22px]">location_on</span>
+<span class="text-outline font-label-code-sm text-[11px]">IST (UTC+5:30)</span>
+</div>
+<p class="font-label-code-sm text-label-code-sm text-outline">Base Location</p>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">
+              Pune, Maharashtra, India
+            </p>
+</div>
+</div>
+<!-- Social Channels Button Strip -->
+<div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-body-md text-body-md font-bold hover:bg-primary-container transition-all duration-150 neon-cyan-glow active:scale-95" href="mailto:maheshtaur920@gmail.com">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Send Direct Message</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-container-high hover:bg-surface-container border border-outline-variant/40 text-on-surface font-body-md text-body-md font-semibold transition-colors" href="https://linkedin.com/in/mahesh-taur" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-secondary text-[20px]">share</span>
+<span>LinkedIn Profile</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-container-high hover:bg-surface-container border border-outline-variant/40 text-on-surface font-body-md text-body-md font-semibold transition-colors" href="https://github.com/tmahesh411" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-primary text-[20px]">code</span>
+<span>GitHub Repos</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-container-high hover:bg-surface-container border border-outline-variant/40 text-on-surface font-body-md text-body-md font-semibold transition-colors" href="https://leetcode.com/u/maheshtaur" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-tertiary text-[20px]">data_object</span>
+<span>LeetCode Stats</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="full-width bottom bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 w-full max-w-[1200px] mx-auto px-6 py-8">
+<!-- Brand & Exact Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary tracking-wider">MT</span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2024 Mahesh Namdev Taur. Crafted with precision in Pune, MH, India.
+        </p>
+</div>
+<!-- Footer Anchor Links -->
+<div class="flex items-center gap-6 font-label-code-sm text-label-code-sm">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors hover:text-primary dark:hover:text-primary duration-150" href="https://github.com/tmahesh411" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors hover:text-primary dark:hover:text-primary duration-150" href="https://linkedin.com/in/mahesh-taur" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors hover:text-primary dark:hover:text-primary duration-150" href="https://leetcode.com/u/maheshtaur" rel="noopener noreferrer" target="_blank">LeetCode</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors hover:text-primary dark:hover:text-primary duration-150" href="#about">Resume</a>
+<a class="text-primary dark:text-primary font-medium hover:underline" href="#contact">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
